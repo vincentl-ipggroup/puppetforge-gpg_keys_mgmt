@@ -1,0 +1,25 @@
+Key-Type: rsa
+Key-Length: 2048
+Subkey-Type: ELG-E
+Subkey-Length: 2048
+
+Name-Real: gpg-test
+Name-Comment: [My comment|GnuPG key automatically created by Puppet]
+Name-Email: test@example.com
+
+Expire-Date: 365d
+
+passphrase: ''
+
+######################################
+
+# the keyring files
+%pubring /tmp/gpg_pub_ring.tmp
+%secring /tmp/gpg_sec_ring.tmp
+
+# perform key generation
+%commit
+
+%echo done
+#EOF
+

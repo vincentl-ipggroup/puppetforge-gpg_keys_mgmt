@@ -1,0 +1,49 @@
+{
+  "description": "Generate a private GPG key",
+  "parameters": {
+    "gpg_name": {
+      "type": "String",
+      "description": "Name of your GPG key"
+    },
+    "gpg_path": {
+      "type": "String",
+      "description": "Full PATH where to store your key (excluding .gnupg folder)"
+    },
+    "gpg_type": {
+      "type": "Optional[Enum['rsa', 'dsa']]",
+      "description": "Type of your GPG key (Default: rsa)"
+    },
+    "gpg_length": {
+      "type": "Optional[Enum['1024', '2048', '3072', 4096']]",
+      "description": "Length of your GPG key (Default: 2048)"
+    },
+    "gpg_comment": {
+      "type": "Optional[String[1]]",
+      "description": "Comment for your GPG key"
+    },
+    "gpg_email": {
+      "type": "Optional[String[1]]",
+      "description": "Email attached to your GPG key"
+    },
+    "gpg_expire": {
+      "type": "Optional[String[1]]",
+      "description": "Expiration in days, (w)eeks, (m)onths, (y)ears - Examples: 5w for 5 weeks | 12 for 12 days (Default: 0 - never expire)"
+    },
+    "gpg_passphrase": {
+      "type": "Optional[String[1]]",
+      "description": "Passphrase of your GPG key (Default: empty)",
+      "sensitive": true
+    },
+    "owner": {
+      "type": "String",
+      "description": "Owner of your GPG key"
+    },
+    "tmpdir": {
+      "type": "Optional[String]",
+      "description": "PATH to store temporary files (Default: /tmp)"
+    }
+  },
+  "implementations": [
+    {"name": "key_generator.sh"}
+  ]
+}
